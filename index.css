@@ -1,67 +1,166 @@
 /* Center the loader */
 #loader {
   position: absolute;
-width: -webkit-fill-available;
-height: -webkit-fill-available;
-background: #333333;
+  width: -webkit-fill-available;
+  height: max-content;
+  padding: 30px;
+  background: #333333;
 }
 
-#loader img{
-   position: absolute;
+#loader img {
+  position: fixed;
   left: 40%;
   top: 40%;
   z-index: 1;
-
 }
-.container {  display: grid;
+.container {
+  display: grid;
   grid-template-columns: 1fr 1200px 1fr;
   grid-template-rows: 1fr;
-  gap: 0px 0px;
+  gap: 25px 0px;
   grid-auto-flow: row;
-  grid-template-areas:
-    ". rectangle .";
-    margin-top:17px ;
+  grid-template-areas: ". rectangle ." ". video-section ." ". livestream-section ." ". single-container ." ". playlist-container .";
+  margin-top: 17px;
 }
 .rectangle {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  grid-template-columns:  1fr 1fr 1fr 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
   gap: 0px 0px;
-  grid-template-areas:
-    "searchbar . logo logotext . upload signin";
+  grid-template-areas: "searchbar searchbar logo logotext . upload signin";
   grid-area: rectangle;
-
 }
 .searchbar {
-width: 400px;
+  width: 100%;
+  align-self: center;
   height: 40px;
-  background: #404040;
+  margin-left: 40px;
+justify-self: center;
   border: 1px solid #000000;
-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-border-radius: 6px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+    color: transparent;
+  background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  grid-area: searchbar;
 }
-.logo { grid-area: logo;
+
+
+.livestream-container{
+  width: 100%;
+  height: 275px;
+  background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+
+@keyframes loading {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0 50%;
+  }
+}
+.logo {
+  grid-area: logo;
   width: 34px;
   height: 36px;
   justify-self: end;
-  background: #404040;
+align-self: center;
+    background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
 }
-.logotext { grid-area: logotext;
+.logotext {
+  grid-area: logotext;
   width: 113px;
-margin-left: 5px;
+  margin-left: 5px;
+  align-self: center;
   height: 36px;
-  background: #404040;}
-.upload { grid-area: upload; }
-.signin { grid-area: signin; }
+    background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+
+}
+.upload {
+  grid-area: upload;
+      justify-self: end;
+      margin-right: 10px;
+  width: 113px;
+  align-self: center;
+  height: 40px;
+  background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+}
+.signin {
+  grid-area: signin;
+  width: 113px;
+  align-self: center;
+  height: 40px;
+    background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+}
+
+.video-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 10px 10px;
+  grid-template-areas:
+    "rectanglecontainer rectanglecontainer rectanglecontainer rectanglecontainer"
+    "rectanglecontainer rectanglecontainer rectanglecontainer rectanglecontainer";
+  grid-area: video-section;
+}
+
+
+
+.rectanglecontainer .rec1{
+width: 100%;
+height: 150px;
+    background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+
+}
+
+.rectanglecontainer .rec2{
+width: 90%;
+height: 19px;
+margin-top: 20px;
+    background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+
+}
 
 @-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 
 /* Add animation to "page content" */
@@ -70,20 +169,123 @@ margin-left: 5px;
   -webkit-animation-name: animatebottom;
   -webkit-animation-duration: 1s;
   animation-name: animatebottom;
-  animation-duration: 1s
+  animation-duration: 1s;
 }
 
 @-webkit-keyframes animatebottom {
-  from { bottom:-100px; opacity:0 }
-  to { bottom:0px; opacity:1 }
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0px;
+    opacity: 1;
+  }
 }
 
 @keyframes animatebottom {
-  from{ bottom:-100px; opacity:0 }
-  to{ bottom:0; opacity:1 }
+  from {
+    bottom: -100px;
+    opacity: 0;
+  }
+  to {
+    bottom: 0;
+    opacity: 1;
+  }
 }
 
 #myDiv {
   display: none;
   text-align: center;
+}
+
+.livestream-section {
+  display: grid;
+ grid-template-columns: repeat(6, auto);
+  grid-template-rows: 1fr;
+  gap: 0px 20px;
+
+  grid-area: livestream-section;
+}
+
+
+.single-container { grid-area: single-container; }
+
+.single-container .single{
+  width: 10%;
+height: 19px;
+margin-top: 20px;
+    background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+}
+.playlist-container {
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-rows: 1fr;
+  gap: 20px 20px;
+
+  grid-area: playlist-container;
+}
+.playlist{
+      display: grid;
+    grid-template-columns: 30% 50% 20%;
+    grid-template-rows: 1fr;
+    gap: 20px;
+}
+
+
+.playlist-image{
+width: 100%;
+height: 127px;
+    background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+}
+.playlist-info{
+  display: grid;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 22px 1fr;
+  grid-template-areas: "playlist-name playlist-name" "playlist-author-image playlist-author-name";
+}
+.playlist-info .playlist-name{
+  width: 100%;
+height: 22px;
+
+    background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 6px;
+  grid-area: playlist-name;
+}
+.playlist-author-image{
+  grid-area: playlist-author-image;
+  width: 75%;
+height: 60%;
+align-self: center;
+      background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+  border-radius: 50%;
+}
+.playlist-author-name{
+  grid-area: playlist-author-name;
+  width: 30%;
+  align-self: center;
+  height: 19px;
+        background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+    border-radius: 6px;
+}
+.playlist-loader{
+  height: 17px;
+  width: 70%;
+          background: linear-gradient(100deg, #404040 30%, #BB3FC0 50%, #404040 70%);
+  background-size: 400%;
+  animation: loading 1.2s ease-in-out infinite;
+    border-radius: 6px;
+    align-self: center;
 }
